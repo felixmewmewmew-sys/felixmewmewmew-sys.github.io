@@ -1,12 +1,15 @@
-// Домашние настройки: плагин онлайн-источников ставится сам (на новом адресе своё хранилище).
+// Домашние настройки: плагины ставятся сами (на новом адресе своё хранилище).
 (function () {
-    var URL = 'https://nb557.github.io/plugins/online_mod.js';
+    var need = [
+        { url: 'https://nb557.github.io/plugins/online_mod.js', key: 'online_mod', name: 'Онлайн', author: '@nb557' },
+        { url: 'https://felixmewmewmew-sys.github.io/axel_tv.js', key: 'axel_tv', name: 'Аксель', author: 'дом' }
+    ];
     try {
         var list = JSON.parse(localStorage.getItem('plugins') || '[]');
-        var has = list.some(function (p) { return (typeof p == 'string' ? p : p.url || '').indexOf('online_mod') > -1; });
-        if (!has) {
-            list.push({ url: URL, status: 1, name: 'Онлайн', author: '@nb557' });
-            localStorage.setItem('plugins', JSON.stringify(list));
-        }
+        need.forEach(function (n) {
+            var has = list.some(function (p) { return (typeof p == 'string' ? p : p.url || '').indexOf(n.key) > -1; });
+            if (!has) list.push({ url: n.url, status: 1, name: n.name, author: n.author });
+        });
+        localStorage.setItem('plugins', JSON.stringify(list));
     } catch (e) {}
 })();
