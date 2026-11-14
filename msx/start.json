@@ -1,6 +1,6 @@
 {
 	"name": "Lampa",
 	"version": "latest",
-	"parameter": "content:https://felixmewmewmew-sys.github.io/lampa/msx/start.json",
-	"action": "link:https://felixmewmewmew-sys.github.io/lampa/"
+	"parameter": "content:https://felixmewmewmew-sys.github.io/msx/start.json",
+	"action": "link:https://felixmewmewmew-sys.github.io/"
 }
